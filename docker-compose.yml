@@ -22,3 +22,17 @@ services:
       ENV: DEV
     volumes:
       - ./app:/var/www
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: xxx
+      MYSQL_DATABASE: valera
+      MYSQL_USER: valera
+      MYSQL_PASSWORD: xxx
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8050:8080
