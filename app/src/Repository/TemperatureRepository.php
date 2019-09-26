@@ -21,16 +21,16 @@ class TemperatureRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Temperature
+     * @return Temperature|null
      * @throws NonUniqueResultException
      */
-    public function getLast(): Temperature
+    public function getLast(): ?Temperature
     {
         $db = $this->createQueryBuilder('t')
             ->orderBy('t.created_at', 'DESC')
             ->getQuery();
 
-        return $db->setMaxResults(1)->getOneOrNullResult();
+        return $db->getOneOrNullResult();
     }
 
     // /**

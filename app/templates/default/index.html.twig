@@ -8,12 +8,16 @@
     <div class="col-lg-4">
         <div class="widget navy-bg p-lg text-center">
             <div class="m-b-md">
+                {% if lastTemperature is empty %}
+                no data
+                {% else %}
                 <i class="fa fa-bell fa-4x"></i>
                 <h1 class="m-xs">{{ lastTemperature.getValue() }}</h1>
                 <h3 class="font-bold no-margins">
                     Notification
                 </h3>
                 <small>{{ lastTemperature.getDateAsString() }}</small>
+                {% endif %}
             </div>
         </div>
     </div>
